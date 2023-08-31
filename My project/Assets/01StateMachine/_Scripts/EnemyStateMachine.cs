@@ -6,8 +6,6 @@ using UnityEngine;
 public class EnemyStateMachine : MonoBehaviour
 {
     public IBaseState CurrentState { get; private set; }
-
-    public float Speed = 5f;
     
     private void Start()
     {

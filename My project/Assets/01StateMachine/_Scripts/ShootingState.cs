@@ -27,7 +27,7 @@ public class ShootingState : IBaseState
             contador++;
         } 
 
-        if(contador > 10)
+        if(contador > 5)
         {
             if (rng == 0)
                 stateMachine.SwitchState(new MovingState());

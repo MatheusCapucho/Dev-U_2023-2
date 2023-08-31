@@ -17,7 +17,7 @@ public class MovingState : IBaseState
 
     public void UpdateState(EnemyStateMachine stateMachine)
     {
-        stateMachine.transform.position += direction * Time.deltaTime;
+        stateMachine.transform.position += direction * Time.deltaTime * GameManager.Instance.EnemySpeed;
 
         if (Vector3.Distance(stateMachine.transform.position, randomPosition) < 0.1f)
             stateMachine.SwitchState(new JumpingState());

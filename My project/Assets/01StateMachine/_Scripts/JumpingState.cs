@@ -30,7 +30,7 @@ public class JumpingState : IBaseState
             jumpCount++;
         }
 
-        if (jumpCount > 3)
+        if (jumpCount > GameManager.Instance.MaxJumps)
             stateMachine.SwitchState(new ShootingState());
 
     }
