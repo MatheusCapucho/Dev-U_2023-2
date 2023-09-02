@@ -15,4 +15,6 @@ public class PlayerAttributesSO : ScriptableObject
     public float Strenght => _strenght;
     public float Speed => _speed;
     public float MaxHealth => _maxHealth;
+    //teste
+    //hshs
 }

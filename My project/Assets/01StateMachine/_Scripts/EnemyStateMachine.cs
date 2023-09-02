@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyStateMachine : MonoBehaviour
 {
     public IBaseState CurrentState { get; private set; }
+
+    public PlayerControls input { get; private set; }
     
     private void Start()
     {
