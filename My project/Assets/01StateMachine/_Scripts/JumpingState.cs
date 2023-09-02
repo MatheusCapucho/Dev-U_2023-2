@@ -19,7 +19,6 @@ public class JumpingState : IBaseState
         lastJumpTime = Time.time;
         
     }
-
     public void UpdateState(EnemyStateMachine stateMachine)
     {
         
@@ -30,7 +29,7 @@ public class JumpingState : IBaseState
             jumpCount++;
         }
 
-        if (jumpCount > GameManager.Instance.MaxJumps)
+        if (jumpCount > 2f)
             stateMachine.SwitchState(new ShootingState());
 
     }

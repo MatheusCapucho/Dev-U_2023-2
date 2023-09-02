@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovingState : IBaseState
 {
@@ -10,17 +11,19 @@ public class MovingState : IBaseState
 
     public void EnterState(EnemyStateMachine stateMachine)
     {
-        float randomFloat = Random.Range(-4f, 4f);
-        randomPosition = new Vector3(randomFloat, 1f, randomFloat);
-        direction = (randomPosition - stateMachine.transform.position).normalized;
+        
     }
 
     public void UpdateState(EnemyStateMachine stateMachine)
     {
-        stateMachine.transform.position += direction * Time.deltaTime * GameManager.Instance.EnemySpeed;
+        var wasd = stateMachine.input.Player.Move.ReadValue<Vector2>();
 
-        if (Vector3.Distance(stateMachine.transform.position, randomPosition) < 0.1f)
-            stateMachine.SwitchState(new JumpingState());
+        Debug.Log(wasd);
+
+        if (wasd.x == 1f)
+            stateMachine.SwitchState(new ShootingState());
 
     }
+   
+
 }

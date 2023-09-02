@@ -9,7 +9,6 @@ public class IdleState : IBaseState
     {
         Debug.Log("Entrei no Idle State");
     }
-
     public void UpdateState(EnemyStateMachine stateMachine)
     {
         i++;

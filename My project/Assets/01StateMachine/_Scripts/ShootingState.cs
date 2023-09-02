@@ -17,7 +17,6 @@ public class ShootingState : IBaseState
 
          rng = Random.Range(0, 2);
     }
-
     public void UpdateState(EnemyStateMachine stateMachine)
     { 
         if (Time.time > lastShootTime + cooldown)
