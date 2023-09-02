@@ -16,7 +16,7 @@ public class MovingState : IBaseState
 
     public void UpdateState(EnemyStateMachine stateMachine)
     {
-        var wasd = stateMachine.input.Player.Move.ReadValue<Vector2>();
+        var wasd = stateMachine.GetMoveInput();
 
         Debug.Log(wasd);
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -30,7 +31,13 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Update()
     {
+        GetMoveInput();
         CurrentState.UpdateState(this);
+    }
+
+    public Vector2 GetMoveInput()
+    {
+        return input.Player.Move.ReadValue<Vector2>();
     }
 
     public void SwitchState(IBaseState baseState)
