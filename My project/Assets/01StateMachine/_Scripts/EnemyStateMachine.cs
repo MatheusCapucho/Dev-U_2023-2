@@ -31,7 +31,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Update()
     {
-        GetMoveInput();
+        //GetMoveInput();
         CurrentState.UpdateState(this);
     }
 

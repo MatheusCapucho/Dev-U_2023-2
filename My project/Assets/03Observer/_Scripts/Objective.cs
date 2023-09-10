@@ -5,6 +5,9 @@ using UnityEngine;
 public class Objective : BaseSubject
 {
     private AnimateTree[] _forest;
+
+    [SerializeField] private ModifyUI modifyUI;
+
     private void Awake()
     {
         _forest = FindObjectsOfType<AnimateTree>();
@@ -15,6 +18,9 @@ public class Objective : BaseSubject
         {
             AddObserver(tree);
         }
+
+        AddObserver(modifyUI);
+
     }
     private void OnDisable()
     {
@@ -22,6 +28,7 @@ public class Objective : BaseSubject
         {
             RemoveObserver(tree);
         }
+        RemoveObserver(modifyUI);
     }
     private void OnTriggerEnter(Collider other)
     {
