@@ -42,6 +42,7 @@ public class PlayerMovementController : AnimatorController
     {
         if (isJumping) return;
 
+        ChangeAnimation(JUMP);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         isJumping = true;
     }
@@ -51,7 +52,7 @@ public class PlayerMovementController : AnimatorController
         rb.velocity = new Vector2(_direction * speed, rb.velocity.y);
         if(rb.velocity.y < -.6f)
         {
-        
+            ChangeAnimation(FALL);
         }
     }
 
@@ -65,16 +66,17 @@ public class PlayerMovementController : AnimatorController
 
         if (_direction != 0)
         {
-            
+            ChangeAnimation(RUN);
         }
         else
         {
-            
+            ChangeAnimation(IDLE);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJumping = false;
+        ChangeAnimation(IDLE);
     }
 
 }

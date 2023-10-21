@@ -24,14 +24,14 @@ public class PlayerMovement : MonoBehaviour
         inputs.Enable();
         inputs.Player.Move.performed += MoveAction;
         //inputs.Player.Move.started += MoveAction;
-        inputs.Player.Move.canceled += MoveAction;
+        //inputs.Player.Move.canceled += MoveAction;
     }
 
     private void OnDisable()
     {
         inputs.Disable();
         inputs.Player.Move.performed -= MoveAction;
-        inputs.Player.Move.canceled -= MoveAction;
+        //inputs.Player.Move.canceled -= MoveAction;
     }
 
     private void Update()
