@@ -20,6 +20,7 @@ public class JsonSaveAndLoad : MonoBehaviour
         Debug.Log(json);
 
         string path = Application.persistentDataPath + "/scoreData.json";
+        Debug.Log(path);
 
         File.WriteAllText(path, json);
 
@@ -27,14 +28,13 @@ public class JsonSaveAndLoad : MonoBehaviour
     public void LoadData()
     {
         string path = Application.persistentDataPath + "/scoreData.json";
-        Debug.Log("PATH: " + path);
 
         if (!File.Exists(path))
             return;
 
         string json = File.ReadAllText(path);
 
-        var scoreData = JsonUtility.FromJson<ScoreData>(json);
+        ScoreData scoreData = JsonUtility.FromJson<ScoreData>(json);
         StaticScoreManager.Score = scoreData.Score;
 
     }

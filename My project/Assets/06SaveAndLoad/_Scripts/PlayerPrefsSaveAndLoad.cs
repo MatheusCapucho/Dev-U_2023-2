@@ -17,6 +17,8 @@ public class PlayerPrefsSaveAndLoad : MonoBehaviour
     }
     public void LoadData()
     {
+        if (!PlayerPrefs.HasKey("saveScore")) return;
+
         var score = PlayerPrefs.GetInt("saveScore");
         StaticScoreManager.Score = score;
     }
